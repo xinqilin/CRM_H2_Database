@@ -28,17 +28,4 @@ public class Client extends BaseEntity {
 
     private String phone;
 
-    public static Client valueOf(ClientBo bo) {
-        return Client.builder()
-                .id(bo.getId())
-                .companyId(bo.getCompanyId())
-                .name(bo.getName())
-                .email(bo.getEmail())
-                .phone(bo.getPhone())
-                .createdBy(bo.getCreatedBy())
-                .createdAt(bo.getCreatedAt())
-                .updatedBy(bo.getUpdatedBy())
-                .updatedAt(bo.getUpdatedAt())
-                .build();
-    }
 }

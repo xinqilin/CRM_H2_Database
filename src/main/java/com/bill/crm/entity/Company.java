@@ -21,15 +21,4 @@ public class Company extends BaseEntity {
 
     private String address;
 
-    public static Company valueOf(CompanyBo bo) {
-        return Company.builder()
-                .id(bo.getId())
-                .name(bo.getName())
-                .address(bo.getAddress())
-                .createdBy(bo.getCreatedBy())
-                .createdAt(bo.getCreatedAt())
-                .updatedBy(bo.getUpdatedBy())
-                .updatedAt(bo.getUpdatedAt())
-                .build();
-    }
 }
