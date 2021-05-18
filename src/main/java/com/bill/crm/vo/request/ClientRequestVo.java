@@ -1,4 +1,4 @@
-package com.bill.crm.dto.request;
+package com.bill.crm.vo.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class ClientRequestDto {
+public class ClientRequestVo {
 
     private Long id;
     private Long companyId;

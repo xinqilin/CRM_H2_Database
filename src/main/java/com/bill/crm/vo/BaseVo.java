@@ -1,4 +1,4 @@
-package com.bill.crm.dto;
+package com.bill.crm.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class BaseDto {
+public class BaseVo {
 
     private Long id;
     private String createdBy;

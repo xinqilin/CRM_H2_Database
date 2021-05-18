@@ -1,4 +1,4 @@
-package com.bill.crm.dto;
+package com.bill.crm.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class PageDto {
+public class PageVo {
 
     private Long currentPage;
     private Long totalPage;

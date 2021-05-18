@@ -1,5 +1,6 @@
-package com.bill.crm.dto.request;
+package com.bill.crm.vo.request;
 
+import com.bill.crm.vo.BaseVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,7 +8,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class CompanyRequestDto {
+public class CompanyRequestVo  {
 
     private Long id;
     private String name;
