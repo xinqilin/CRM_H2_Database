@@ -28,7 +28,7 @@ public class CompanyService {
                 .map(CompanyResponseVo::valueOf);
     }
 
-    public CompanyBo add(CompanyRequestVo companyRequestVo, String username) {
+    public Optional<CompanyBo> add(CompanyRequestVo companyRequestVo, String username) {
         CompanyBo companyBo = CompanyBo.builder()
                 .name(companyRequestVo.getName())
                 .address(companyRequestVo.getAddress())
@@ -36,10 +36,10 @@ public class CompanyService {
                 .createdAt(Timestamp.from(Instant.now()))
                 .build();
 
-        return companyDao.convertToBo(companyDao.add(companyBo));
+        return companyDao.add(companyBo);
     }
 
-    public CompanyBo update(CompanyRequestVo companyRequestVo, String username) {
+    public Optional<CompanyBo> update(CompanyRequestVo companyRequestVo, String username) {
         CompanyBo companyBo = CompanyBo.builder()
                 .id(companyRequestVo.getId())
                 .name(companyRequestVo.getName())
@@ -48,7 +48,7 @@ public class CompanyService {
                 .updatedAt(Timestamp.from(Instant.now()))
                 .build();
 
-        return companyDao.convertToBo(companyDao.add(companyBo));
+        return companyDao.update(companyBo);
     }
 
     public boolean delete(Long id) {

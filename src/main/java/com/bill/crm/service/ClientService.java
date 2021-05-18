@@ -26,17 +26,21 @@ public class ClientService {
     @Autowired
     private CompanyDaoImpl companyDao;
 
-    public Optional<Long> add(ClientResponseVo clientResponseVo, String username) {
-        if (isCompanyIdNotExist(clientResponseVo.getCompanyId())) {
-            log.debug("companyId={} doesn't exist", clientResponseVo.getCompanyId());
+    public Optional<ClientBo> get(Long id) {
+        return clientDao.get(id);
+    }
+
+    public Optional<Long> add(ClientRequestVo clientRequestVo, String username) {
+        if (isCompanyIdNotExist(clientRequestVo.getCompanyId())) {
+            log.debug("companyId={} doesn't exist", clientRequestVo.getCompanyId());
             return Optional.empty();
         }
 
         ClientBo clientBo = ClientBo.builder()
-                .companyId(clientResponseVo.getCompanyId())
-                .name(clientResponseVo.getName())
-                .email(clientResponseVo.getEmail())
-                .phone(clientResponseVo.getPhone())
+                .companyId(clientRequestVo.getCompanyId())
+                .name(clientRequestVo.getName())
+                .email(clientRequestVo.getEmail())
+                .phone(clientRequestVo.getPhone())
                 .createdBy(username)
                 .createdAt(Timestamp.from(Instant.now()))
                 .build();

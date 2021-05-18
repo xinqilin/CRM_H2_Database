@@ -21,15 +21,20 @@ public class CompanyDaoImpl {
                 .map(CompanyDaoImpl::convertToBo);
     }
 
-    private Company save(Company entity) {
-        return companyRepository.save(entity);
+    private Optional<CompanyBo> save(Company entity) {
+        Company dbCompany = companyRepository.save(entity);
+        if (dbCompany != null) {
+            return Optional.of(convertToBo(dbCompany));
+        } else {
+            return Optional.empty();
+        }
     }
 
-    public Company add(CompanyBo bo) {
+    public Optional<CompanyBo> add(CompanyBo bo) {
         return save(convertFromBo(bo));
     }
 
-    public Company update(CompanyBo bo) {
+    public Optional<CompanyBo> update(CompanyBo bo) {
         Company dbCompany = companyRepository.findById(bo.getId()).orElse(null);
 
         if (dbCompany != null) {
@@ -41,7 +46,7 @@ public class CompanyDaoImpl {
             dbCompany = convertFromBo(bo);
         }
 
-        return companyRepository.save(dbCompany);
+        return save(dbCompany);
 
     }
 
